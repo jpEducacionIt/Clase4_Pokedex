@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailFragment">
+
+    <ImageView
+        android:id="@+id/list_imageView"
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pokemon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/detail_text_vida"
+        android:layout_width="95dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="vida"
+        android:background="@color/bordo"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list_imageView" />
+
+    <TextView
+        android:id="@+id/detail_ataque"
+        android:layout_width="95dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/rosa"
+        android:gravity="center"
+        android:text="ataque"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/detail_text_vida"
+        app:layout_constraintTop_toBottomOf="@+id/list_imageView" />
+
+    <TextView
+        android:id="@+id/detaildefense"
+        android:layout_width="95dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/verde"
+        android:gravity="center"
+        android:text="defensa"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/detail_ataque"
+        app:layout_constraintTop_toBottomOf="@+id/list_imageView" />
+
+    <TextView
+        android:id="@+id/detailvelocidad"
+        android:layout_width="95dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/violeta"
+        android:gravity="center"
+        android:text="velicidad"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/detaildefense"
+        app:layout_constraintTop_toBottomOf="@+id/list_imageView" />
+
+    <ProgressBar
+        android:id="@+id/detail_progressBar"
+        android:visibility="gone"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/list_imageView"
+        app:layout_constraintEnd_toEndOf="@+id/list_imageView"
+        app:layout_constraintStart_toStartOf="@+id/list_imageView"
+        app:layout_constraintTop_toTopOf="@+id/list_imageView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,13 +9,17 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 
-class DetailFragment : Fragment() {
+class PokemonDetailFragment : Fragment() {
+
+    private val args: PokemonDetailFragmentArgs by navArgs()
+
 
     private lateinit var ataqueTextView: TextView
     private lateinit var defensaTextView: TextView
@@ -23,6 +27,8 @@ class DetailFragment : Fragment() {
     private lateinit var vidaTextView: TextView
     private lateinit var imageView: ImageView
     private lateinit var progressBar: ProgressBar
+    private lateinit var nombrePokemon: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +41,8 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val myView = inflater.inflate(R.layout.fragment_detail, container, false)
+        // Inflate the layout for this fragment
+        val myView = inflater.inflate(R.layout.fragment_pokemon_detail, container, false)
 
         ataqueTextView = myView.findViewById(R.id.detail_ataque)
         defensaTextView = myView.findViewById(R.id.detaildefense)
@@ -43,12 +50,19 @@ class DetailFragment : Fragment() {
         vidaTextView = myView.findViewById(R.id.detail_text_vida)
         imageView = myView.findViewById(R.id.list_imageView)
         progressBar = myView.findViewById(R.id.detail_progressBar)
+        nombrePokemon = myView.findViewById(R.id.textViewNombreDetalle)
 
         return myView
     }
 
-    fun setDatosPokemon(pokemon: Pokemon) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        val pokemon = args.pokemon
+        setDatosPokemon(pokemon)
+    }
+
+    fun setDatosPokemon(pokemon: Pokemon) {
         progressBar.visibility = View.VISIBLE
 
         Glide.with(this).load(pokemon.url).listener(object : RequestListener<Drawable> {
@@ -80,5 +94,6 @@ class DetailFragment : Fragment() {
         defensaTextView.text = "Def: ${pokemon.defensa}"
         velocidadTextView.text = "Vel: ${pokemon.velocidad}"
         vidaTextView.text = "HP: ${pokemon.vida}"
+        nombrePokemon.text = pokemon.name
     }
 }

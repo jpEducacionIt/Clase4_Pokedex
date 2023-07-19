@@ -9,9 +9,7 @@ data class Pokemon(
     val velocidad: Int,
     val tipo: PokemonTipo,
     val url: String
-) {
-
-    enum class PokemonTipo {
-        PLANTA, FUEGO, AGUA, LUCHA, ELECTRICO
-    }
+)
+enum class PokemonTipo {
+    PLANTA, FUEGO, AGUA, LUCHA, ELECTRICO
 }

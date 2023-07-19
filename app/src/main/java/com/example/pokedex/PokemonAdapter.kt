@@ -23,11 +23,11 @@ class PokemonAdapter: ListAdapter<Pokemon, PokemonAdapter.ViewHolder>(DiffCallBa
             nombrePokemon.text = pokemon.name
 
             val image = when(pokemon.tipo) {
-                Pokemon.PokemonTipo.AGUA -> R.drawable.agua
-                Pokemon.PokemonTipo.PLANTA -> R.drawable.planta
-                Pokemon.PokemonTipo.FUEGO -> R.drawable.fuego
-                Pokemon.PokemonTipo.ELECTRICO -> R.drawable.electrico
-                Pokemon.PokemonTipo.LUCHA -> R.drawable.fighter
+                PokemonTipo.AGUA -> R.drawable.agua
+                PokemonTipo.PLANTA -> R.drawable.planta
+                PokemonTipo.FUEGO -> R.drawable.fuego
+                PokemonTipo.ELECTRICO -> R.drawable.electrico
+                PokemonTipo.LUCHA -> R.drawable.fighter
             }
 
             imagenTipo.setImageResource(image)
